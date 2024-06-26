@@ -20,5 +20,10 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         transform.position = playerCamPos.transform.position;
+
+        if (transform.position.y < minHight)
+            transform.position = new Vector3(transform.position.x, minHight, transform.position.z);
+        else if(transform.position.y >maxHight)
+            transform.position = new Vector3(transform.position.x, maxHight, transform.position.z);
     }
 }
